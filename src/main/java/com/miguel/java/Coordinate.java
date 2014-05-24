@@ -7,6 +7,8 @@ package com.miguel.java;
  */
 
 public class Coordinate {
+
+    //In "real" live I might use getters and setters, but in this case I didn't see the need
     public final Double x;
     public final Double y;
 
