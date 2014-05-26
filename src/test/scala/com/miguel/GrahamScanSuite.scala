@@ -3,7 +3,7 @@ package com.miguel
 import _root_.java.io.PrintWriter
 import org.scalatest.FunSuite
 import org.scalatest.matchers.ShouldMatchers
-import com.miguel.GrahamScanScala.Coordinate
+import com.miguel.GrahamScanScala.Point
 
 /**
  * Created: Miguel A. Iglesias
@@ -13,7 +13,7 @@ class GrahamScanSuite extends FunSuite with ShouldMatchers {
 
   val coordinates = (1 to 40).map {
     _ =>
-      Coordinate(math.random, math.random)
+      Point(math.random, math.random)
   }.toList
 
 
