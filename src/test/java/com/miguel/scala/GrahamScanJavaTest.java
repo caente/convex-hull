@@ -1,6 +1,6 @@
 package com.miguel.scala;
 
-import com.miguel.java.Coordinate;
+import com.miguel.java.Point;
 import com.miguel.java.GrahamScanJava;
 import org.junit.After;
 import org.junit.Before;
@@ -23,7 +23,7 @@ public class GrahamScanJavaTest {
 
     Random rnd = new Random();
 
-    List<Coordinate> coordinates = IntStream.rangeClosed(1,40).mapToObj(t -> new Coordinate(rnd.nextDouble(), rnd.nextDouble())).collect(Collectors.toList());
+    List<Point> coordinates = IntStream.rangeClosed(1,40).mapToObj(t -> new Point(rnd.nextDouble(), rnd.nextDouble())).collect(Collectors.toList());
 
 @Before
 public void before() throws Exception { 
@@ -47,7 +47,7 @@ public void testConvexHull() throws Exception {
     p.print("Y = [");
     coordinates.stream().map(c -> c.y.toString() + " ").forEach(p::print);
     p.println("];");
-    List<Coordinate> border = GrahamScanJava.scan(coordinates);
+    List<Point> border = GrahamScanJava.scan(coordinates);
     p.print("EX = [");
     border.stream().map(c -> c.x.toString() + " ").forEach(p::print);
     p.println("];");

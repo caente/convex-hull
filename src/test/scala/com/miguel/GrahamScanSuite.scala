@@ -11,7 +11,7 @@ import com.miguel.GrahamScanScala.Point
  */
 class GrahamScanSuite extends FunSuite with ShouldMatchers {
 
-  val coordinates = (1 to 40).map {
+  val points = (1 to 40).map {
     _ =>
       Point(math.random, math.random)
   }.toList
@@ -20,11 +20,11 @@ class GrahamScanSuite extends FunSuite with ShouldMatchers {
   test("convex hull to plot on octave") {
     val p = new PrintWriter("graham_scala.m")
     import GrahamScanScala._
-    val border = scan(coordinates)
+    val border = scan(points)
     p.println(
       s"""
-      |X = [${coordinates.map(_.x).mkString(" ")}];
-      |Y = [${coordinates.map(_.y).mkString(" ")}];
+      |X = [${points.map(_.x).mkString(" ")}];
+      |Y = [${points.map(_.y).mkString(" ")}];
       |EX = [${border.map(_.x).mkString(" ")}];
       |EY = [${border.map(_.y).mkString(" ")}];
       |plot(EX,EY,"r-",X,Y,"b+");
