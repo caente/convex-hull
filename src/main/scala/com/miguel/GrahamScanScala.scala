@@ -11,8 +11,8 @@ object GrahamScanScala {
 
   def scan(coords: List[Coordinate]): List[Coordinate] = {
     //instead of using PUSH and POP, foldRight
-    def addToHull(hull: List[Coordinate], next: Coordinate): List[Coordinate] = next :: hull.foldRight(List.empty[Coordinate]) {
-      case (top, currentHull@(head :: _)) => if (next.goesLeft(head, top)) top :: currentHull else currentHull
+    def addToHull(hull: List[Coordinate], new_point: Coordinate): List[Coordinate] = new_point :: hull.foldRight(List.empty[Coordinate]) {
+      case (next_top, currentHull@(top :: _)) => if (new_point.goesLeft(top, next_top)) next_top :: currentHull else currentHull
       case (top, currentHull) => top :: currentHull
     }
     val min = coords.minBy(_.y)
