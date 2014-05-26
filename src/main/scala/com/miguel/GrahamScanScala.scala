@@ -13,7 +13,7 @@ object GrahamScanScala {
     //instead of using PUSH and POP, foldRight
     def addToHull(hull: List[Coordinate], new_point: Coordinate): List[Coordinate] = new_point :: hull.foldRight(List.empty[Coordinate]) {
       case (next_top, currentHull@(top :: _)) => if (new_point.goesLeft(top, next_top)) next_top :: currentHull else currentHull
-      case (top, currentHull) => top :: currentHull
+      case (next_top, currentHull) => next_top :: currentHull
     }
     val min = coords.minBy(_.y)
     //adding the min to close the polygon on octave
