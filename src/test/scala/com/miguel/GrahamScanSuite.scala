@@ -11,7 +11,7 @@ import com.miguel.GrahamScanScala.Point
  */
 class GrahamScanSuite extends FunSuite with ShouldMatchers {
 
-  val points = (1 to 40).map {
+  val points = (1 to 80).map {
     _ =>
       Point(math.random, math.random)
   }.toList
@@ -32,5 +32,6 @@ class GrahamScanSuite extends FunSuite with ShouldMatchers {
     )
     p.close()
   }
+
 
 }
